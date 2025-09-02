@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+/* 提供されたローダーのCSS */
+.loader {
+  width: 70px;
+  aspect-ratio: 1;
+  background:
+    radial-gradient(farthest-side,#000 90%,#0000) 0 0/8px 8px no-repeat,
+    conic-gradient(from -90deg at 30px 30px,#0000 90deg,#fff 0) 0 0/40px 40px ,
+    conic-gradient(from  90deg at 10px 10px,#0000 90deg,#fff 0) 0 0/40px 40px no-repeat,
+    conic-gradient(from -90deg at 30px 30px,#0000 90deg,#fff 0) 100% 100%/40px 40px no-repeat;
+  animation: l5 2s infinite;
+}
+@keyframes l5 {
+  0%   {background-position:left 1px top 1px,0 0,0 0,100% 100%}
+  16.67% {background-position:left 50% top 1px,0 0,0 0,100% 100%}
+  33.33% {background-position:left 50% bottom 1px,0 0,0 0,100% 100%}
+  50%    {background-position:right 1px bottom 1px,0 0,0 0,100% 100%}
+  66.67% {background-position:right 1px bottom 50%,0 0,0 0,100% 100%}
+  83.33% {background-position:left 1px bottom 50%,0 0,0 0,100% 100%}
+  100%   {background-position:left 1px top 1px,0 0,0 0,100% 100%}
+}
+
+/* ローダーを画面中央に配置するCSS */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; /* ローダーの背景色 */
+    z-index: 9999; /* 他の要素より手前に表示 */
+}
+h1{
+
+color:white;
+
+font-family: 'Corporate Logo', 'メイリオ','Sans serif';
+
+}
+.typewriter-text {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .15em solid transparent; /* 最初は非表示 */
+    width: 0;
+}
+
+.typewriter-text.is-visible {
+    border-color: orange;
+    animation: 
+        typing 4s steps(60, end) forwards,
+        blink-caret .75s step-end infinite;
+}
+
+/* タイピングアニメーションのキーフレーム */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* カーソル点滅アニメーションのキーフレーム */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+}
+.title {
+
+display: block;
+
+margin: 0 auto;
+
+width:96%;
+
+height: auto;
+
+}
+
+.news {
+
+display: block;
+
+margin: 0 auto;
+
+width:100%;
+
+height: auto;
+
+}
+
+body{
+
+background-color:#000000;
+
+
+}
+
+.alert{
+
+font-family: 'Noto Serif JP', serif;
+
+color:white;
+
+font-size:20px;
+
+margin:45px;
+
+}
+/* アニメーション前の状態（非表示） */
+[data-animate] {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 左からフェードインする要素 */
+.slide-in-left {
+    transform: translateX(-50px); /* 左に50pxずらす */
+}
+
+/* 右からフェードインする要素 */
+.slide-in-right {
+    transform: translateX(50px); /* 右に50pxずらす */
+}
+
+/* アニメーション後の状態（表示） */
+[data-animate].is-visible {
+    opacity: 1;
+    transform: translateX(0); /* 元の位置に戻す */
+}
+</style>
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>藤波祭 1の8 クラス展示特設サイト</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="loader-container">
+      <div class="loader"></div>
+    </div>
+    
+    <div class="content">
+      <div class="pre-clear-content">
+        <h1>1の8 クラス展示</h1>
+        <img src="https://i.ibb.co/TMgcHG5R/title.png" class="title">
+        <br><br>
+        <img src="https://i.ibb.co/G4J7Vz82/image.png" class="news slide-in-left" data-animate>
+        <img src="https://i.ibb.co/ZzzjRGLK/image.png" class="news slide-in-right" data-animate>
+        <br><br><hr><hr>
+        <div class="alert">
+          <h2>注意事項</h2>
+          <p class="typewriter-text">
+            ・壁などにむやみに触ると災いが降り注ぐ可能性があるので注意するべし。<br>
+            ・ピエロへの攻撃は返り討ちにされる可能性があるので避けるべし。
+          </p>
+        </div>
+      </div>
+
+      <div class="post-clear-content" style="display: none;">
+          <h1>1の8 クラス展示</h1>
+        <img src="https://i.ibb.co/TMgcHG5R/title.png" class="title">
+        <br><br>
+        <h1>クリアおめでとうございます！</h1>
+         <img src="https://i.ibb.co/Y7ygfd1S/image.png" class="news slide-in-left" data-animate>
+        <h3>また33年後に封印しに来てください。</h3>
+        </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+<script>// URLのパラメータを取得する関数
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    const regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+    const results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+// ページが完全に読み込まれたときに実行
+window.onload = function() {
+    // ローディングアニメーションの処理
+    const loaderContainer = document.querySelector('.loader-container');
+    const content = document.querySelector('.content');
+
+    loaderContainer.style.display = 'none';
+    content.style.display = 'block';
+
+    // クリア後のページ表示の処理
+    const isCleared = getUrlParameter('clear');
+    const hasClearedInLocalStorage = localStorage.getItem('clear') === 'true';
+
+    if (isCleared === 'true' || hasClearedInLocalStorage) {
+        document.querySelector('.pre-clear-content').style.display = 'none';
+        document.querySelector('.post-clear-content').style.display = 'block';
+
+        if (isCleared === 'true') {
+            localStorage.setItem('clear', 'true');
+            console.log('クリア記念のデータが保存されました！');
+        }
+    }
+
+    // スクロールアニメーションの処理
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+
+    const elementsToAnimate = document.querySelectorAll('[data-animate], .typewriter-text');
+    elementsToAnimate.forEach(element => {
+        observer.observe(element);
+    });
+};
+//# sourceURL=userscript.js
+</script>
+</body>
+</html>
